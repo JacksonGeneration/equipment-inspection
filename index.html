@@ -9,11 +9,6 @@
       text-align: center;
       margin-top: 50px;
     }
-    button {
-      padding: 12px 25px;
-      font-size: 16px;
-      cursor: pointer;
-    }
     #response {
       margin-top: 20px;
       font-weight: bold;
@@ -22,46 +17,44 @@
   </style>
 </head>
 <body>
-  <h2>Send POST Request to Power Automate Flow</h2>
-  
-  <button id="sendRequest">Send POST Request</button>
-  
-  <div id="response"></div>
-  
+  <h2>Sending POST Request to Power Automate Flow...</h2>
+
+  <div id="response">Loading...</div>
+
   <script>
     const postUrl = "https://prod-144.westus.logic.azure.com:443/workflows/f6c0893e198040aaacce7a676f0d9716/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ipK5A_w4lWczwH_ytJ-kPpLysrukIjvCaGricj09D8c";
 
-    document.getElementById("sendRequest").addEventListener("click", async () => {
-      // Example JSON payload - adjust if your flow expects specific data
+    // Send POST request immediately when page loads
+    (async function sendPostRequest() {
       const payload = {
         message: "Hello from the HTML page!",
         timestamp: new Date().toISOString()
       };
 
-        try {
-            const response = await fetch(postUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            });
+      try {
+        const response = await fetch(postUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
 
-            if (response.ok) {
-                const responseText = await response.text();
+        if (response.ok) {
+          const responseText = await response.text();
 
-                // Replace current page content with the response
-                document.open();
-                document.write(responseText);
-                document.close();
+          // Replace the current page content with the response
+          document.open();
+          document.write(responseText);
+          document.close();
 
-            } else {
-                document.body.innerHTML = `<p>Request failed with status: ${response.status}</p>`;
-            }
-        } catch (error) {
-            document.body.innerHTML = `<p>Error: ${error.message}</p>`;
+        } else {
+          document.getElementById("response").textContent = `Request failed with status: ${response.status}`;
         }
-    });
+      } catch (error) {
+        document.getElementById("response").textContent = `Error: ${error.message}`;
+      }
+    })();
   </script>
 </body>
 </html>
