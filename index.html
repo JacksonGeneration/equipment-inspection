@@ -40,23 +40,23 @@
 
         try {
             const response = await fetch(postUrl, {
-            method: "POST",https://github.com/JacksonGeneration/equipment-inspection/tree/main
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
             });
 
             if (response.ok) {
-            const responseText = await response.text();
+                const responseText = await response.text();
 
-            // Replace current page content with the response
-            document.open();
-            document.write(responseText);
-            document.close();
+                // Replace current page content with the response
+                document.open();
+                document.write(responseText);
+                document.close();
 
             } else {
-            document.body.innerHTML = `<p>Request failed with status: ${response.status}</p>`;
+                document.body.innerHTML = `<p>Request failed with status: ${response.status}</p>`;
             }
         } catch (error) {
             document.body.innerHTML = `<p>Error: ${error.message}</p>`;
