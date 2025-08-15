@@ -54,38 +54,40 @@
         }
       }
 
-      if(!postUrl)return;
-    // Send POST request immediately when page loads
-    (async function sendPostRequest() {
-      const payload = {
-        message: "Hello from the HTML page!",
-        timestamp: new Date().toISOString()
-      };
+      if(postUrl){
+        // Send POST request immediately when page loads
+        (async function sendPostRequest() {
+          const payload = {
+            message: "Hello from the HTML page!",
+            timestamp: new Date().toISOString()
+          };
 
-      try {
-        const response = await fetch(postUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(payload)
-        });
+          try {
+            const response = await fetch(postUrl, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(payload)
+            });
 
-        if (response.ok) {
-          const responseText = await response.text();
+            if (response.ok) {
+              const responseText = await response.text();
 
-          // Replace the current page content with the response
-          document.open();
-          document.write(responseText);
-          document.close();
+              // Replace the current page content with the response
+              document.open();
+              document.write(responseText);
+              document.close();
 
-        } else {
-          document.getElementById("response").textContent = `Request failed with status: ${response.status}`;
-        }
-      } catch (error) {
-        document.getElementById("response").textContent = `Error: ${error.message}`;
+            } else {
+              document.getElementById("response").textContent = `Request failed with status: ${response.status}`;
+            }
+          } catch (error) {
+            document.getElementById("response").textContent = `Error: ${error.message}`;
+          }
+        })();
+
       }
-    })();
   </script>
 </body>
 </html>
