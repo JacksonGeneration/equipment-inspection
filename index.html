@@ -41,13 +41,26 @@
           case 'ev2':
             postUrl = "https://prod-144.westus.logic.azure.com:443/workflows/f6c0893e198040aaacce7a676f0d9716/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ipK5A_w4lWczwH_ytJ-kPpLysrukIjvCaGricj09D8c"
             break;
-          case 'equipment2':
-            messageEl.textContent = "Action for equipment 2";
-            // Add code or redirect for equipment2
+          case 'ev1':
+            postUrl = "https://prod-29.westus.logic.azure.com:443/workflows/09bffac70b0445a992b9bf6fbfdb8780/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=8Gs0thzxf0lLK9ITTV9kAQRdWMWh5oUIgtRpithNfBo"
             break;
-          case 'equipment3':
-            messageEl.textContent = "Action for equipment 3";
-            // Add code or redirect for equipment3
+          case 'gator1':
+            postUrl = "https://prod-26.westus.logic.azure.com:443/workflows/f29a4ce0dfda4a7ba96b9877667c2724/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=aJ-gDlV9JNoPaSXDiSAIxq0pqqgEheFpg28BW8J-ESU"
+            break;
+          case 'gator2':
+            postUrl = "https://prod-29.westus.logic.azure.com:443/workflows/d42de6cf62aa49c9b7703435ecf89877/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xsl-ifF5tLx4aV1fUrxOuaAWQxVj5iXNsi6RA9PIb7Y"
+            break;
+          case 'forklift':
+            postUrl = "https://prod-163.westus.logic.azure.com:443/workflows/4f1a148e6a55464182af704c43d0cf51/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=AZxIg0XymjgDtsk6ZPtOtvqlIWHUyDV73f9CXAeXM0U"
+            break;
+          case 'telehandler':
+            postUrl = "https://prod-41.westus.logic.azure.com:443/workflows/acb9ced646f14f79a6f08f3fed4ca792/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_mI79drv0MsYJztU_37tps12WC4YFa5-MkbbbRm-jwE"
+            break;
+          case 'sissor-lift':
+            postUrl = "https://prod-05.westus.logic.azure.com:443/workflows/089f5eb30f5e4bcca60e9ace834ee2a0/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=csRtsQSQfp3YRWHm0Oe7WvycAhmMSmLKaFhG6amQ8to"
+            break;
+          case 'man-basket':
+            postUrl = "https://prod-07.westus.logic.azure.com:443/workflows/aba0aaba610f4e85ade1ac9f12dd6450/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=MEGO-CjdNeD0UUHH-WP870Xp1PApVUmS88pL0BgEMOQ"
             break;
           default:
             messageEl.textContent = "Unknown equipment: " + equipmentType;
@@ -91,3 +104,4 @@
   </script>
 </body>
 </html>
+
