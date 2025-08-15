@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8" />
@@ -17,13 +17,44 @@
   </style>
 </head>
 <body>
-  <h2>Sending POST Request to Power Automate Flow...</h2>
+  <h2 id="message">Sending POST Request to Power Automate Flow...</h2>
 
   <div id="response">Loading...</div>
 
   <script>
-    const postUrl = "https://prod-144.westus.logic.azure.com:443/workflows/f6c0893e198040aaacce7a676f0d9716/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ipK5A_w4lWczwH_ytJ-kPpLysrukIjvCaGricj09D8c";
+    const postUrl = null;
 
+    const equipmentType = getQueryParam('equipment');
+    const messageEl = document.getElementById('message');
+
+    
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+      if (!equipmentType) {
+        messageEl.textContent = "No equipment specified.";
+      } else {
+        // Run different code based on equipment type
+        switch(equipmentType.toLowerCase()) {
+          case 'equipment1':
+            postUrl = "https://prod-144.westus.logic.azure.com:443/workflows/f6c0893e198040aaacce7a676f0d9716/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ipK5A_w4lWczwH_ytJ-kPpLysrukIjvCaGricj09D8c"
+            break;
+          case 'equipment2':
+            messageEl.textContent = "Action for equipment 2";
+            // Add code or redirect for equipment2
+            break;
+          case 'equipment3':
+            messageEl.textContent = "Action for equipment 3";
+            // Add code or redirect for equipment3
+            break;
+          default:
+            messageEl.textContent = "Unknown equipment: " + equipmentType;
+        }
+      }
+
+      if(!postUrl)return;
     // Send POST request immediately when page loads
     (async function sendPostRequest() {
       const payload = {
@@ -57,4 +88,4 @@
     })();
   </script>
 </body>
-</html>
+</html> -->
